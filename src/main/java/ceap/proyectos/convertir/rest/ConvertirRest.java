@@ -30,6 +30,7 @@ public class ConvertirRest {
     @GetMapping("/fahrenheitACelsius")
     public ResponseEntity<Response> fahrenheitACentigrados(@RequestBody String datos) {
         Gson gson = new Gson();
+        System.out.println(datos);
         Datos datosJson = gson.fromJson(datos, Datos.class);
         Response response = business.fahrenheitACentigrados(datosJson.getTempratura());
         return new ResponseEntity<Response>(response, HttpStatus.OK);
